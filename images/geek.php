@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+<meta name="renderer" content="webkit">
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon"> <!-- Filled -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- Outlined -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"> <!-- Rounded -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"> <!-- Sharp -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"> <!-- Two Tone -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+<link rel="stylesheet" type="text/css" href="./css/css.css">
+<script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+<link rel="stylesheet" href="./css/mdui.css">
+<script src="./js/mdui.global.js"></script>
+<title>全栈仓库-极客仓</title>
+<style>
+.text-title
+{
+    font-size: 22px;
+    font-weight: 400;
+}
+.text-bold-title
+{
+    font-size: 28px;
+    font-weight: 400;
+    font-weight: bold;
+}
+.text-level-title
+{
+    font-size: 22px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    /* 尝试将垂直对齐方式设为顶部对齐 */
+    line-height: 1.1;
+    /* 或者尝试减小行高 */
+    padding-top: 2px;
+    /* 或者增加一点上内边距 */
+    margin: 0px;
+}
+#help_us_btn {
+margin-top: -5px;
+display: inline-block;
+/* 将按钮图标变为行内块元素 */
+vertical-align: middle;
+/* 保持垂直居中 */
+}
+</style>
+</head>
+<body>
+<!-- 页面头部 -->
+<!--?php require 'header.php';?-->
+<mdui-tabs value="tab-1" full-width>
+<mdui-tab value="tab-1">APP</mdui-tab>
+<mdui-tab value="tab-2">网站</mdui-tab>
+<mdui-tab value="tab-3">教程</mdui-tab>
+<mdui-tab-panel slot="panel" value="tab-1" style="">
+<!-- 午夜神 -->
+<?php require 'wys.html';?>
+</mdui-tab-panel>
+<mdui-tab-panel slot="panel" value="tab-2" style="text-align: center;">
+<?php
+// JSON数据链接
+$jsonUrl = './json/geek/web.json';
+// 使用cURL或file_get_contents()获取JSON数据
+if (ini_get('allow_url_fopen'))
+{
+    $jsonString = file_get_contents($jsonUrl);
+}
+else
+{
+    $ch = curl_init($jsonUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $jsonString = curl_exec($ch);
+    curl_close($ch);
+}
+// 检查是否成功获取数据
+if ($jsonString !== false)
+{
+    // 解析JSON字符串
+    $data = json_decode($jsonString, true);
+    // 检查JSON是否解析成功
+    if (json_last_error() === JSON_ERROR_NONE)
+    {
+        // 遍历应用程序数组，生成卡片
+        foreach ($data['web'] as $app)
+        {
+            echo '<mdui-card clickable variant="elevated" id="' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '" style="width: 90%;height: 80px; margin-top: 15px; text-align: left;">';
+            echo '<mdui-avatar src="' . htmlspecialchars($app['image'], ENT_QUOTES, 'UTF-8') . '" style="width: 50px;height: 50px; margin: 15px; border-radius: 10px;"></mdui-avatar>';
+            echo '<p class="text-level-title" style="margin-top: 25px; margin-bottom:25px;">' . htmlspecialchars($app['name'], ENT_QUOTES, 'UTF-8') . '</p>';
+            //echo '<mdui-button href="' . htmlspecialchars($app['url'], ENT_QUOTES, 'UTF-8') . '" style="text-align: right;">下载</mdui-button>';
+            echo '</mdui-card>';
+            echo '<mdui-dialog close-on-overlay-click headline="Delete selected images?" class="example-headline-slot-' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '"><span slot="headline">' . htmlspecialchars($app['name'], ENT_QUOTES, 'UTF-8') . '</span><span slot="description">' . htmlspecialchars($app['title'], ENT_QUOTES, 'UTF-8') . '</span><mdui-button slot="action" variant="text" id="on_' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '">取消</mdui-button><mdui-button slot="action" variant="tonal" target="_blank" href="' . htmlspecialchars($app['url'], ENT_QUOTES, 'UTF-8') . '">打开</mdui-button></mdui-dialog> ';
+            echo '<script>const dialog' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . ' = document.querySelector(".example-headline-slot-' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '"); const openButton' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . ' = document.getElementById("open-dialog-' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '"); ' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.addEventListener("click", () => dialog' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.open = true); on_' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.addEventListener("click", () => dialog' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.open = false);</script>';
+        }
+    }
+    else
+    {
+        echo 'JSON解析错误: ' . json_last_error_msg();
+    }
+}
+else
+{
+    echo '无法获取数据。请检查链接的合法性，并适当重试。';
+}
+?>
+</mdui-tab-panel>
+<mdui-tab-panel slot="panel" value="tab-3" style="text-align: center;">
+<?php
+// JSON数据链接
+$jsonUrl = './json/geek/study.json';
+// 使用cURL或file_get_contents()获取JSON数据
+if (ini_get('allow_url_fopen'))
+{
+    $jsonString = file_get_contents($jsonUrl);
+}
+else
+{
+    $ch = curl_init($jsonUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $jsonString = curl_exec($ch);
+    curl_close($ch);
+}
+// 检查是否成功获取数据
+if ($jsonString !== false)
+{
+    // 解析JSON字符串
+    $data = json_decode($jsonString, true);
+    // 检查JSON是否解析成功
+    if (json_last_error() === JSON_ERROR_NONE)
+    {
+        // 遍历应用程序数组，生成卡片
+        foreach ($data['study'] as $app)
+        {
+            echo '<mdui-card clickable variant="elevated" id="' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '" style="width: 90%;height: 80px; margin-top: 15px; text-align: left;">';
+            echo '<mdui-avatar src="' . htmlspecialchars($app['image'], ENT_QUOTES, 'UTF-8') . '" style="width: 50px;height: 50px; margin: 15px; border-radius: 10px;"></mdui-avatar>';
+            echo '<p class="text-level-title" style="margin-top: 25px; margin-bottom:25px;">' . htmlspecialchars($app['name'], ENT_QUOTES, 'UTF-8') . '</p>';
+            //echo '<mdui-button href="' . htmlspecialchars($app['url'], ENT_QUOTES, 'UTF-8') . '" style="text-align: right;">下载</mdui-button>';
+            echo '</mdui-card>';
+            echo '<mdui-dialog close-on-overlay-click headline="Delete selected images?" class="example-headline-slot-' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '"><span slot="headline">' . htmlspecialchars($app['name'], ENT_QUOTES, 'UTF-8') . '</span><span slot="description">' . htmlspecialchars($app['title'], ENT_QUOTES, 'UTF-8') . '</span><mdui-button slot="action" variant="text" id="on_' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '">取消</mdui-button><mdui-button slot="action" variant="tonal" target="_blank" href="' . htmlspecialchars($app['url'], ENT_QUOTES, 'UTF-8') . '">打开</mdui-button></mdui-dialog> ';
+            echo '<script>const dialog' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . ' = document.querySelector(".example-headline-slot-' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '"); const openButton' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . ' = document.getElementById("open-dialog-' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '"); ' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.addEventListener("click", () => dialog' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.open = true); on_' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.addEventListener("click", () => dialog' . htmlspecialchars($app['id'], ENT_QUOTES, 'UTF-8') . '.open = false);</script>';
+        }
+    }
+    else
+    {
+        echo 'JSON解析错误: ' . json_last_error_msg();
+    }
+}
+else
+{
+    echo '无法获取数据。请检查链接的合法性，并适当重试。';
+}
+?>
+</mdui-tab-panel>
+</mdui-tabs>
+<!-- 返回网页顶部 -->
+<?php require 'top.php';
+?>
+<!-- 页面底部信息 -->
+<?php require 'footer.php';
+?>
+</body>
+</html>

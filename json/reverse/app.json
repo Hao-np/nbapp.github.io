@@ -1,0 +1,16 @@
+{"app":[
+    {"id":"app_mt", "name":"MT管理器", "image":"./json/reverse/icon/mt.png", "url":"https://mt2.cn", "title":"我愿称之为最牛逼的文件管理器和逆向工具"},
+    {"id":"app_np", "name":"NP管理器", "image":"./json/reverse/icon/np.png", "url":"https://github.com/githubXiaowangzi/NP-Manager", "title":"类似于MT管理器的逆向工具"},
+    {"id":"app_apktool", "name":"Apktool M", "image":"./json/reverse/icon/ApktoolM.png", "url":"https://sanqiantan.lanzout.com/ipob61s30byd", "title":"ApkTool M是一款由俄罗斯开发者制作的APK反编译工具，它主要用于Android应用和系统应用的逆向工程。这款工具提供了多种功能，包括但不限于对APK文件的反编译、打包、拆分、合并和签名等操作。Apktool M支持查看源Java代码，并对关键字、类、方法和字段提供代码提示，这使得开发者能够更加方便地对应用进行修改和编译。"},
+    {"id":"app_mix", "name":"MiXplorer", "image":"./json/reverse/icon/MIX.png", "url":"https://mixplorer.com", "title":"文件管理器"},
+    {"id":"app_zhigan", "name":"质感文件", "image":"./json/reverse/icon/TextureFile.png", "url":"https://github.com/zhanghai/MaterialFiles/releases/", "title":"一个开源的 Material Design 文件管理器"},
+    {"id":"app_DisElf2", "name":"DisElf2", "image":"./json/reverse/icon/DisElf2.png", "url":"https://hao-hao.lanzouw.com/iSbxv1tvzx1g", "title":"密码：OJBK\n放编译.so文件"},
+    {"id":"app_mx", "name":"MX数据加密大师", "image":"./json/reverse/icon/mx.png", "url":"https://hao-hao.lanzouw.com/i7Wkp1tvzxch", "title":"密码：OJBK\nMX数据加密大师是一款面向 逆向破解编程 或 正向软件开发等用途的数据分析工具，一般可用于破解软件辅助解密的工具，也可用于网络编程中的编码（乱码）解码分析，Unicode转换分析等，支持2至36进制的随意互相转换，支持MD5和SHA-1加密解密（注意，是加密和解密！)"},
+    {"id":"app_bmgjx", "name":"编码工具箱", "image":"./json/reverse/icon/bmgjx.png", "url":"https://hao-hao.lanzouw.com/iVRmD1tvzwla", "title":"密码：OJBK\n数据分析工具"},
+    {"id":"app_Reqable", "name":"Reqable", "image":"./json/reverse/icon/Reqable.png", "url":"https://reqable.com/zh-CN", "title":"抓包工具\n谷歌应用商店上的"},
+    {"id":"app_HttpCanary", "name":"HttpCanary", "image":"./json/reverse/icon/HttpCanary.png", "url":"https://hao-hao.lanzouw.com/iJbFU1tttamb", "title":"抓包工具\n密码：OJBK"}, 
+    {"id":"app_HttpCanarylan", "name":"HttpCanary", "image":"./json/reverse/icon/HttpCanarylan.png", "url":"https://hao-hao.lanzouw.com/ioM5e1ttt66b", "title":"抓包工具\n密码：OJBK"},
+    {"id":"app_HttpCanary360", "name":"HttpCanary", "image":"./json/reverse/icon/HttpCanary360.png", "url":"https://hao-hao.lanzouw.com/i43EY1tttibi", "title":"抓包工具\n密码：OJBK\n有360加固"},
+    {"id":"app_PCAPdroid", "name":"PCAPdroid", "image":"./json/reverse/icon/PCAPdroid.png", "url":"https://github.com/emanuele-f/PCAPdroid/releases", "title":"抓包工具\nGitHub开源项目"},
+    {"id":"app_ProxyPin", "name":"ProxyPin", "image":"./json/reverse/icon/ProxyPin.png", "url":"https://github.com/wanghongenpin/network_proxy_flutter/releases", "title":"抓包工具\nGitHub开源项目"}
+]}

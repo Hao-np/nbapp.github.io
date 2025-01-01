@@ -1,0 +1,5 @@
+{"web":[
+    {"id":"web_kanxue", "name":"看雪", "image":"https://api.iowen.cn/favicon/bbs.kanxue.com.png", "url":"https://bbs.kanxue.com", "title":"安全技术交流"}, 
+    {"id":"web_wipj", "name":"吾爱破解", "image":"https://api.iowen.cn/favicon/www.52pojie.cn.png", "url":"https://52pojie.cn", "title":"软件安全，破解技术"},
+    {"id":"web_mt", "name":"MT论坛", "image":"https://cdn-bbs.mt2.cn/template/comiis_app/pic/icon114.png", "url":"https://bbs.binmt.cc", "title":"MT管理器官方论坛"}
+]}

@@ -1,0 +1,8 @@
+{"web":[
+    {"id":"web_coolapk", "name":"酷安", "image":"https://api.iowen.cn/favicon/coolapk.com.png", "url":"https://coolapk.com/", "title":"极客交流社区"}, 
+    {"id":"web_xda", "name":"XDA", "image":"https://api.iowen.cn/favicon/xdaforums.com.png", "url":"https://xdaforums.com/", "title":"国际极客交流社区"},
+    {"id":"web_yhcres", "name":"萤火虫资源站", "image":"https://api.iowen.cn/favicon/www.yhcres.top.png", "url":"https://www.yhcres.top/", "title":"萤火虫团队的资源站"},
+    {"id":"web_lsdy", "name":"流水断崖", "image":"https://api.iowen.cn/favicon/lsdy.top.png", "url":"https://lsdy.top/", "title":"搞机助手"},
+    {"id":"web_admie", "name":"Admie Wang", "image":"https://api.iowen.cn/favicon/admie.wang.png", "url":"https://admie.wang/", "title":"主搞华为手机的大佬"}
+    {"id":"web_yiov", "name":"Yiov", "image":"https://api.iowen.cn/favicon/yiov.top.png", "url":"https://yiov.top", "title":""}
+]}
